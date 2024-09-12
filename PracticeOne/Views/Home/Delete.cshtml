@@ -1,0 +1,17 @@
+﻿@model UserEntity
+
+<h2 class="h2 text-center mb-4">@Model.Name User Deleted ?</h2>
+<div class="card">
+    <div class="card-header text-center">
+        <p>Are you sure you want to delete the user?</p>
+    </div>
+    <div class="card-body">
+        After this process, the user cannot be brought back.
+    </div>
+</div>
+<hr />
+<form asp-controller="Home" asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    <button type="submit" class="btn btn-warning">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-info">Cancel</a>
+</form>
