@@ -8,15 +8,15 @@ namespace PracticeOne.Controllers.Home
     {
         static List<UserEntity> _users = new List<UserEntity>()
         {
-            new UserEntity{Id=1,Name="Sertan",LastName="Bozkuş",Birthday = new DateTime(1990,5,23), Email = "sertanbozkus@gmail.com", IsActive = true, IsDeleted =false},
-            new UserEntity{Id=2,Name="Aleyna",LastName="Avcı",Birthday = new DateTime(1995,5,23), Email = "aleynaavci@gmail.com", IsActive = true, IsDeleted =false},
-            new UserEntity{Id=3,Name="Özge",LastName="Açık",Birthday = new DateTime(1995,5,23), Email = "ozgeacik@gmail.com", IsActive = true, IsDeleted =false},
-            new UserEntity{Id=4,Name="Ajda",LastName="Pekkan",Birthday = new DateTime(1960,5,23), Email = "ajdapekkan@gmail.com", IsActive = false, IsDeleted =false},
-            new UserEntity{Id=5,Name="Sezen",LastName="Aksu",Birthday = new DateTime(1950,5,23), Email = "ajdapekkan@gmail.com", IsActive = false, IsDeleted =true},
+            new UserEntity{Id=1,Name="William",LastName="Shakespeare",Birthday = new DateTime(1990,5,23), Email = "william@gmail.com", IsActive = true, IsDeleted =false},
+            new UserEntity{Id=2,Name="Sarah",LastName="Thompson",Birthday = new DateTime(1995,5,23), Email = "sarah@gmail.com", IsActive = true, IsDeleted =false},
+            new UserEntity{Id=3,Name="James",LastName="Peterson",Birthday = new DateTime(1995,5,23), Email = "james@gmail.com", IsActive = true, IsDeleted =false},
+            new UserEntity{Id=4,Name="Michael",LastName="Johnson",Birthday = new DateTime(1960,5,23), Email = "michael@gmail.com", IsActive = false, IsDeleted =false},
+            new UserEntity{Id=5,Name="Emily",LastName="Richards",Birthday = new DateTime(1950,5,23), Email = "emily@gmail.com", IsActive = false, IsDeleted =true},
         };
         public IActionResult Index()
         {
-            //Where ile listemde dönerek silinmemiş olanları listeleyip select ile seçip listview e eşitleyip listeye çevirip view e gönderdim
+            //I selected the ones that were not deleted by rotating the list with Where and with select, I equalized it to the listview and converted it to a list and sent it to the view.
             var viewModel = _users.Where(x => x.IsDeleted == false).Select(x => new UserListView 
             {
                 Id = x.Id,
@@ -38,10 +38,10 @@ namespace PracticeOne.Controllers.Home
         {
             if (!ModelState.IsValid)
             {
-                return View(formData); //herhangi bir sorun durumunda girilen verilerin kaybolmaması adına geri view ile formdatayı gönderdik
+                return View(formData); //We sent the formdata with the back view to prevent the data entered from being lost in case of any problems.
             }
-            int maxId = _users.Max(x => x.Id); //en büyük id yi max ile aldım
-            //girilen datalarımızı entity e çeviriyoruz
+            int maxId = _users.Max(x => x.Id); //I got the largest id with max
+            //We convert our entered data into entity
             var newUser = new UserEntity()
             {
                 Id = maxId + 1,
