@@ -34,19 +34,12 @@ This is a simple User Management system where users can be created, read, update
     cd UserCrud
     ```
 
-3. Update the connection string in the `appsettings.json` file to point to your SQL Server instance.
-
-4. Apply the migrations to the database:
-    ```bash
-    dotnet ef database update
-    ```
-
-5. Run the application:
+3. Run the application:
     ```bash
     dotnet run
     ```
 
-6. Open a browser and navigate to `https://localhost:5001` (or the specified port).
+4. Open a browser and navigate to `https://localhost:5001` (or the specified port).
 
 ## Usage
 
